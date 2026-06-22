@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 简明指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', 'Songti SC', serif;
+            background-color: #faf8f5;
+            color: #2e2b28;
+            line-height: 1.8;
+            padding: 0 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2.4rem 0 4rem;
+        }
+
+        /* hero 模块 — 杂志标题区 */
+        .hero {
+            text-align: center;
+            margin-bottom: 3.5rem;
+            border-bottom: 1px solid #d9d0c5;
+            padding-bottom: 2.2rem;
+        }
+
+        .hero .kicker {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #9e8d7a;
+            margin-bottom: 0.8rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            color: #4a3f35;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #7b5f48;
+        }
+
+        .hero .subtitle {
+            font-size: 1.05rem;
+            color: #6e6156;
+            font-style: italic;
+            max-width: 550px;
+            margin: 0.5rem auto 0;
+            border-top: 1px dotted #d0c5b9;
+            padding-top: 0.8rem;
+        }
+
+        /* 正文通用 */
+        section {
+            margin-bottom: 2.8rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #4a3f35;
+            border-left: 4px solid #b7a18c;
+            padding-left: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        /* 提示块 / 引用框 */
+        .insight-box {
+            background-color: #f2eee9;
+            border-left: 6px solid #b7a18c;
+            padding: 1.3rem 1.6rem;
+            margin: 1.8rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.98rem;
+        }
+
+        .insight-box strong {
+            color: #5a4c3e;
+        }
+
+        .insight-box a {
+            color: #6f5541;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cbb9a7;
+        }
+
+        .insight-box a:hover {
+            color: #3d2f24;
+            text-decoration-color: #7b5f48;
+        }
+
+        /* 小卡片列表 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .feature-item {
+            flex: 1 1 180px;
+            background: #fcfaf7;
+            padding: 1.2rem 1.2rem 1.2rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 1px solid #e6ddd3;
+        }
+
+        .feature-item .num {
+            display: inline-block;
+            font-family: 'Arial', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #b7a18c;
+            letter-spacing: 1px;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #4a3f35;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #5f5449;
+            margin-bottom: 0;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d9d0c5;
+            text-align: center;
+            font-size: 0.92rem;
+            color: #6e6156;
+        }
+
+        .footer-note a {
+            color: #6f5541;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #cbb9a7;
+        }
+
+        .footer-note a:hover {
+            color: #3d2f24;
+        }
+
+        /* 引用块 */
+        blockquote {
+            font-style: italic;
+            background: #f5f0ea;
+            padding: 1rem 1.6rem;
+            border-radius: 12px;
+            margin: 1.8rem 0;
+            color: #4e4238;
+            border: 1px solid #e1d6ca;
+            font-size: 0.96rem;
+        }
+
+        blockquote footer {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #8f7d6b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 580px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .feature-item {
+                flex: 1 1 auto;
+            }
+            body {
+                padding: 0 0.9rem;
+            }
+            .page-wrap {
+                padding: 1.5rem 0 3rem;
+            }
+        }
+
+        /* 数字列表（内联） */
+        .inline-tip {
+            background: #f7f3ee;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border: 1px solid #e2d7cb;
+        }
+
+        .inline-tip ol {
+            padding-left: 1.5rem;
+            color: #3e362f;
+        }
+
+        .inline-tip li {
+            margin-bottom: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <div class="kicker">✧ 专题 · 简明指南 ✧</div>
+        <h1>关于 <span>爱游戏</span><br>你需要的几个基本认知</h1>
+        <div class="subtitle">一份从访问方式到使用逻辑的简要手册</div>
+    </div>
+
+    <!-- 背景说明 -->
+    <section>
+        <h2>它是什么，从哪里出发</h2>
+        <p>在数字娱乐领域，「爱游戏」逐渐成为一个被频繁提及的标识。它并非一个单一的产品名称，而是一套围绕游戏内容聚合与访问入口的平台化服务。许多人第一次接触它时，往往是从一个简短链接开始——比如 <a href="https://portal-h5-ayx.com">爱游戏</a> 这个地址，就是最直接的出发站。理解它的第一步，是知道去哪里找到它，以及它提供的基本通道形态。</p>
+        <div class="insight-box">
+            <strong>🔍 一点背景</strong> —— 该平台采用 H5 前端架构，无需安装本地客户端，通过浏览器即可完成大部分操作。这一特性降低了使用门槛，也使得访问方式更加灵活。
+        </div>
+    </section>
+
+    <!-- 三段自然介绍（简明指南角度） -->
+    <section>
+        <h2>访问前后的三个实用要点</h2>
+
+        <div class="feature-grid">
+            <div class="feature-item">
+                <span class="num">01</span>
+                <h3>链接识别</h3>
+                <p>官方入口通常以 <code>portal-h5-ayx.com</code> 为主域。访问前注意核对地址栏，避免进入拼写相似的仿冒页面。建议将 <a href="https://portal-h5-ayx.com">爱游戏</a> 加入浏览器书签，以保持路径稳定。</p>
+            </div>
+            <div class="feature-item">
+                <span class="num">02</span>
+                <h3>环境准备</h3>
+                <p>由于基于 H5 渲染，建议使用 Chrome、Edge 或 Safari 的较新版本，并保持网络通畅。部分功能可能依赖 WebSocket 或本地存储，关闭隐私模式可减少异常。</p>
+            </div>
+            <div class="feature-item">
+                <span class="num">03</span>
+                <h3>账户与数据</h3>
+                <p>平台通常要求注册或绑定已有身份。首次使用时，注意阅读服务条款中关于数据保存与注销的说明。不同区域可能提供不同的访问策略，可留意页面底部的区域提示。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 场景/FAQ 摘要 —— 用引用块代替 -->
+    <section>
+        <h2>常见疑问速览</h2>
+        <blockquote>
+            “为什么有时页面加载后显示空白？请先检查网络代理设置，部分安全软件或防火墙可能拦截 H5 页面的动态请求。关闭 VPN 或添加白名单通常可以解决。”
+            <footer>—— 来自社区整理 · 2025</footer>
+        </blockquote>
+
+        <div class="inline-tip">
+            <ol>
+                <li><strong>是否需要下载 App？</strong> 不需要。直接通过浏览器访问 <a href="https://portal-h5-ayx.com">爱游戏</a> 即可，但部分模块会提示“在浏览器中打开”。</li>
+                <li><strong>多设备同步吗？</strong> 账户数据通常基于服务端保存，同一账号在不同设备登录后可同步部分配置。</li>
+                <li><strong>遇到页面卡顿怎么办？</strong> 尝试清理浏览器缓存或切换网络环境。如果持续异常，可留意平台公告了解维护状态。</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- 补充一段承接文字：从知识到操作 -->
+    <section>
+        <h2>从了解开始，比急于操作更重要</h2>
+        <p>许多使用上的困惑，源头都在于对平台定位的模糊。当你把 <a href="https://portal-h5-ayx.com">爱游戏</a> 看作一个功能入口而非最终目的地时，它的设计逻辑就会清晰很多：它负责连通、导航与呈现，而具体的内容生态则由背后的合作方填充。因此，保持对版本更新的留意、对官方公告的阅读，能帮你省去不少试错时间。</p>
+        <p>另外，如果你在访问过程中遇到界面语言或货币单位与预期不符，不妨检查页面底部的区域选择器。部分平台会根据 IP 地域展示不同内容，手动切换有时能带来更准确的体验。</p>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-note">
+        <p>📎 访问提示：如果页面无法加载，请尝试复制以下地址到浏览器地址栏：<br>
+        <span style="font-family: monospace; background: #ede7e0; padding: 0.1rem 0.6rem; border-radius: 4px;">https://portal-h5-ayx.com</span></p>
+        <p style="margin-top: 1rem;">本文档仅作知识介绍，不构成任何形式的使用担保。<br>
+        当前专题基于 2025 年公开信息整理，细节可能随平台更新而变化。</p>
+    </div>
+
+</div>
+</body>
+</html>
